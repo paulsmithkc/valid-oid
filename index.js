@@ -22,9 +22,7 @@ function validId(paramName) {
         return next();
       }
     } catch (err) {
-      const oidError = new Error(`${paramName} "${idString}" is not a valid ObjectId.`);
-      oidError.status = 404;
-      next(oidError);
+      return next({ status: 404, message: `${paramName} "${idString}" is not a valid ObjectId.` });
     }
   };
 }
