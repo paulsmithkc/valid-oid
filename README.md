@@ -2,18 +2,18 @@
 Express middleware for validating an ObjectId in the path.
 
 ## Install
-```
+```bash
 npm install valid-oid
 ```
 
 ## Usage
 Import the middleware as below:
-```
+```js
 const validId = require('valid-oid');
 ```
 
 Install the middleware on a route:
-```
+```js
 app.get('/api/product/:productId', validId('productId'), (req, res, next) => {
   const productId = req.productId;
   const product = getProduct(productId);
