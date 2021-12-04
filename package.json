@@ -1,6 +1,6 @@
 {
   "name": "valid-oid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Express middleware for validating an ObjectId in the path.",
   "keywords": [
     "express",
