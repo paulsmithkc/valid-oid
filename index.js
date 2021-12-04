@@ -1,6 +1,12 @@
 const { ObjectId } = require('mongodb');
 const { RequestHandler } = require('express');
 
+/**
+ * Construct an error object.
+ * @param {number} status status code
+ * @param {string} message error message
+ * @returns {Error} the error object
+ */
 function newError(status, message) {
   const error = new Error(message);
   error.status = status;
@@ -14,7 +20,7 @@ function newError(status, message) {
  * Calls the next middleware if ObjectId is valid.
  * Sends a 404 response if the ObjectId is invalid.
  *
- * @param {string} paramName the name of the path parameter
+ * @param {string} paramName the name of the request parameter
  * @returns {RequestHandler} a middleware
  */
 function validId(paramName) {
