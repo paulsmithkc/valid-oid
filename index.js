@@ -19,17 +19,17 @@ function newError(status, message) {
  */
 function validId(paramName) {
   return (req, res, next) => {
-    const idString = req.params[paramName];
+    const paramValue = req.params[paramName];
     try {
-      if (!idString) {
-        throw new Error('ObjectId was falsy');
+      if (!paramValue) {
+        throw new Error('parameter not provided');
       } else {
-        req[paramName] = new ObjectId(idString);
+        req[paramName] = new ObjectId(paramValue);
         return next();
       }
     } catch (err) {
       return next(
-        newError(404, `${paramName} "${idString}" is not a valid ObjectId.`)
+        newError(404, `${paramName} "${paramValue}" is not a valid ObjectId.`)
       );
     }
   };
