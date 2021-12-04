@@ -12,6 +12,9 @@
     "oid"
   ],
   "main": "index.js",
+  "scripts": {
+    "example": "npx nodemon ./examples/server.js"
+  },
   "author": "Paul Smith",
   "license": "MIT",
   "repository": {
@@ -22,11 +25,12 @@
     "url": "https://github.com/paulsmithkc/valid-oid/issues"
   },
   "homepage": "https://github.com/paulsmithkc/valid-oid#readme",
-  "devDependencies": {
+  "peerDependencies": {
     "express": "^4.17.1",
     "mongodb": "^4.1.2"
   },
-  "peerDependencies": {
+  "devDependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongodb": "^4.1.2"
   }

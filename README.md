@@ -18,7 +18,7 @@ app.get('/api/product/:productId', validId('productId'), (req, res, next) => {
   const productId = req.productId;
   const product = getProduct(productId);
   if (!product) {
-    return next({ status: 404, message: `Product "${productId}" not found.` });
+    return res.status(404).json({ error: `Product "${productId}" not found.` });
   } else {
     return res.json(product);
   }
