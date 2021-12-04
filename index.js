@@ -1,6 +1,12 @@
 const { ObjectId } = require('mongodb');
 const { RequestHandler } = require('express');
 
+function newError(status, message) {
+  const error = new Error(message);
+  error.status = status;
+  return error;
+}
+
 /**
  * Validates an ObjectId that is part of the path
  * and adds the validated ObjectId to the request.
@@ -22,10 +28,9 @@ function validId(paramName) {
         return next();
       }
     } catch (err) {
-      return next({
-        status: 404,
-        message: `${paramName} "${idString}" is not a valid ObjectId.`,
-      });
+      return next(
+        newError(404, `${paramName} "${idString}" is not a valid ObjectId.`)
+      );
     }
   };
 }
