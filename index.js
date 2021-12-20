@@ -2,7 +2,7 @@ const { ObjectId } = require('mongodb');
 const { RequestHandler } = require('express');
 
 /**
- * Construct an error object.
+ * Construct an error object with a status code.
  * @param {number} status status code
  * @param {string} message error message
  * @returns {Error} the error object
